@@ -1,3 +1,13 @@
+%--------------------------------------------------------------------------
+% Method_SingleShooting.m
+% Attempt to solve the Bryson-Denham problem using a single shooting method
+%--------------------------------------------------------------------------
+%
+%--------------------------------------------------------------------------
+% Primary Contributor: Daniel R. Herber, Graduate Student, University of 
+% Illinois at Urbana-Champaign
+% https://github.com/danielrherber/optimal-control-direct-method-examples
+%--------------------------------------------------------------------------
 function Method_SingleShooting
     % problem parameters
     p.ns = 2; p.nu = 1; % number of states and controls
@@ -5,7 +15,8 @@ function Method_SingleShooting
     p.y0 = 0; p.yf = 0; p.v0 = 1; p.vf = -1; % boundary conditions
     p.l = 1/9;
     % shooting parameters
-    p.nt = 50; % number of node points
+    p.nt = 10; % number of node points
+%     p.nt = 50; % number of node points
     p.t = linspace(p.t0,p.tf,p.nt)'; % time horizon
     % discretized variable indices in x = [u];
     p.ui = 1:p.nt;
@@ -18,7 +29,7 @@ function Method_SingleShooting
     [~,Y] = ode45(@(t,y) derivative(t,y,p),p.t,[p.y0,p.v0]); % simulation
     y = Y(:,1); v = Y(:,2); % extract states
     % plots
-    plots(y,v,p.u,p)
+    Plots(y,v,p.u,p,'Single Shooting')
 end
 % objective function
 function f = objective(x,p)
@@ -41,14 +52,4 @@ end
 function dydt = derivative(t,y,p)
     dydt(1,1) = y(2); % v
     dydt(2,1) = interp1(p.t,p.u,t); % u
-end
-% plotting function
-function plots(y,v,u,p)
-    close all
-    % plot states
-    figure
-    plot(p.t,[y,v],'.'); xlabel('t'); ylabel('states'); hold on
-    % plots control
-    figure
-    plot(p.t,u,'.'); xlabel('t'); ylabel('u'); hold on
 end

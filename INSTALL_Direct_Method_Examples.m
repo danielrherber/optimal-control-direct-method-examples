@@ -1,14 +1,13 @@
 %--------------------------------------------------------------------------
 % INSTALL_Direct_Method_Examples
-% This scripts helps you get the PM Circuits project up and running
+% This scripts helps you get the project up and running
 %--------------------------------------------------------------------------
 % Automatically adds project files to your MATLAB path, downloads the
-% required MATLAB File Exchange submissions, checks your Python setup, 
-% and opens an example.
+% required MATLAB File Exchange submissions, and opens an example.
 %--------------------------------------------------------------------------
 % Primary Contributor: Daniel R. Herber, Graduate Student, University of 
 % Illinois at Urbana-Champaign
-% Link: https://github.com/danielrherber/pm-circuits
+% https://github.com/danielrherber/optimal-control-direct-method-examples
 %--------------------------------------------------------------------------
 function INSTALL_Direct_Method_Examples
 
@@ -24,7 +23,7 @@ function INSTALL_Direct_Method_Examples
 	AddProjectContents
 
 	% Open example
-	OpenExample 
+	OpenExample('Run_All_Examples')
 
 	% Close this file
 	CloseThisFile(mfilename)
@@ -46,21 +45,11 @@ function FXSubmissions
 	disp('--- Obtaining required MATALB File Exchange submissions')
 
 	ind = 0;
-
-	ind = ind + 1;
-	zips(ind).url = 'https://github.com/altmany/export_fig/archive/master.zip';
-	zips(ind).name = 'MFX 23629';
-	zips(ind).test = 'export_fig';
-
-	ind = ind + 1;
-	zips(ind).url = 'http://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/40397/versions/7/download/zip/mfoldername_v2.zip';
-	zips(ind).name = 'MFX 40397';
-	zips(ind).test = 'mfoldername';
     
 	ind = ind + 1;
 	zips(ind).url = 'https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/51104/versions/1/download/zip/v1.zip';
 	zips(ind).name = 'MFX 51104';
-	zips(ind).test = 'nodes_LGL';
+	zips(ind).test = 'LagrangeInter';
 
 	% obtain full function path
 	full_fun_path = which(mfilename('fullpath'));
@@ -96,12 +85,12 @@ function DownloadWebZips(zips,outputdir)
     end
 end
 %--------------------------------------------------------------------------
-function OpenExample
-	disp('--- Opening an example')
+function OpenExample(name)
+	disp(['--- Opening ', name])
 	disp(' ')
 
-	%
-	open ex1
+	% open the file
+	open(name);
 end
 %--------------------------------------------------------------------------
 function CloseThisFile(name)
@@ -114,5 +103,4 @@ function CloseThisFile(name)
             h(k).close % close this file
         end
     end
-    
 end
