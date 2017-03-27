@@ -31,11 +31,11 @@ See [INSTALL_Direct_Method_Examples.m](https://github.com/danielrherber/optimal-
 
 This is the optimal control problem used in the examples. The problem formulation is:
 
-![bd_formulation.svg](bd_formulation.svg)
+![bd_formulation.svg](http://www.danielherber.com/img/projects/optimal-control-direct-method-examples/bd_formulation.svg)
 
-The solution when l is between 0 and 1/6 is:
+The solution when `\ell` is between 0 and 1/6 is:
 
-![bd_solution.svg](bd_solution.svg)
+![bd_solution.svg](http://www.danielherber.com/img/projects/optimal-control-direct-method-examples/bd_solution.svg)
 
 Please the following files that calculate the optimal [states](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/bryson-denham/BrysonDenham_Solution_States.m) and [control](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/bryson-denham/BrysonDenham_Solution_Control.m). See pages 120–123 of *A. E. Bryson and Y.-C. Ho, Applied Optimal Control, revised printing ed. Taylor & Francis, 1975* for more details on this problem.
 
@@ -47,4 +47,4 @@ Please the following files that calculate the optimal [states](https://github.co
 
 #### Project Links
 - [https://github.com/danielrherber/optimal-control-direct-method-examples](https://github.com/danielrherber/optimal-control-direct-method-examples)
-- [http://www.mathworks.com/matlabcentral/fileexchange/XXXXX](http://www.mathworks.com/matlabcentral/fileexchange/XXXXX)
+<!-- - [http://www.mathworks.com/matlabcentral/fileexchange/XXXXX](http://www.mathworks.com/matlabcentral/fileexchange/XXXXX) -->
