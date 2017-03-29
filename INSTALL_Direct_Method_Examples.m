@@ -63,6 +63,10 @@ end
 %--------------------------------------------------------------------------
 % download and unzip weblinks that contain zip files
 function DownloadWebZips(zips,outputdir)
+    % store the current directory
+    olddir = pwd;
+    % change to the output directory
+    cd(outputdir)
     for k = 1:length(zips)
         % first check if the test file is in the path
         if exist(zips(k).test,'file') == 0
@@ -71,18 +75,22 @@ function DownloadWebZips(zips,outputdir)
             name = zips(k).name;
             % download zip file
             zipname = websave(name,url);
+            % save location
+            outputdirname = fullfile(outputdir,name);
             % create a folder utilizing name as the foldername name
-            if ~exist([outputdir,name], 'dir')
-                mkdir([outputdir,name]);
+            if ~exist(outputdirname, 'dir')
+                mkdir(outputdirname);
             end
             % unzip the zip
-            unzip(zipname,[outputdir,name]);
+            unzip(zipname,outputdirname);
             % delete the zip file
             delete([name,'.zip'])
             % output to the command window
             disp(['Downloaded and unzipped ',name])
         end
     end
+    % change back to the original directory
+    cd(olddir)
 end
 %--------------------------------------------------------------------------
 function OpenExample(name)

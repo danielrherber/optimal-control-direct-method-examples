@@ -12,7 +12,7 @@ function Method_SingleShooting
     % problem parameters
     p.ns = 2; p.nu = 1; % number of states and controls
     p.t0 = 0; p.tf = 1; % time horizon
-    p.y0 = 0; p.yf = 0; p.v0 = 1; p.vf = -1; % boundary conditions
+    p.y10 = 0; p.y1f = 0; p.y20 = 1; p.y2f = -1; % boundary conditions
     p.l = 1/9;
     % shooting parameters
     p.nt = 10; % number of node points
@@ -26,10 +26,10 @@ function Method_SingleShooting
     x = fmincon(@(x) objective(x,p),x0,[],[],[],[],[],[],@(x) constraints(x,p),options);
     % obtain the optimal solution
     p.u = x(p.ui); % extract
-    [~,Y] = ode45(@(t,y) derivative(t,y,p),p.t,[p.y0,p.v0]); % simulation
-    y = Y(:,1); v = Y(:,2); % extract states
+    [~,Y] = ode45(@(t,y) derivative(t,y,p),p.t,[p.y10,p.y20]); % simulation
+    y1 = Y(:,1); y2 = Y(:,2); % extract states
     % plots
-    Plots(y,v,p.u,p,'Single Shooting')
+    Plots(y1,y2,p.u,p,'Single Shooting')
 end
 % objective function
 function f = objective(x,p)
@@ -40,11 +40,11 @@ end
 % constraint function
 function [c,ceq] = constraints(x,p)
     p.u = x(p.ui); % extract
-    [~,Y] = ode45(@(t,y) derivative(t,y,p),p.t,[p.y0,p.v0]); % simulation
-    y = Y(:,1); v = Y(:,2); % extract states
-    ceq1 = y(end) - p.yf; % final state conditions
-    ceq2 = v(end) - p.vf;
-    c1 = y - p.l; % path constraints
+    [~,Y] = ode45(@(t,y) derivative(t,y,p),p.t,[p.y10,p.y20]); % simulation
+    y1 = Y(:,1); y2 = Y(:,2); % extract states
+    ceq1 = y1(end) - p.y1f; % final state conditions
+    ceq2 = y2(end) - p.y2f;
+    c1 = y1 - p.l; % path constraints
     % combine constraints
     c = c1; ceq = [ceq1;ceq2];
 end
