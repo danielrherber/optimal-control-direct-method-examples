@@ -7,7 +7,7 @@
 
 [![license](https://img.shields.io/github/license/danielrherber/optimal-control-direct-method-examples.svg)](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/License)
 
-Some simple teaching examples for three direct methods for solving optimal control (or dynamic optimization) problems, namely [single shooting](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_SingleShooting.m), [single step](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_SingleStep.m), and [pseudospectral](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_Pseudospectral.m).
+Teaching examples for three direct methods for solving optimal control problems, namely [single shooting](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_SingleShooting.m), [single step](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_SingleStep.m), and [pseudospectral](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_Pseudospectral.m).
 
 ![readme_image.svg](http://www.danielherber.com/img/projects/optimal-control-direct-method-examples/readme_image.svg)
 
@@ -49,4 +49,4 @@ Please see the following files that calculate the optimal [states](https://githu
 
 #### Project Links
 - [https://github.com/danielrherber/optimal-control-direct-method-examples](https://github.com/danielrherber/optimal-control-direct-method-examples)
-<!-- - [http://www.mathworks.com/matlabcentral/fileexchange/XXXXX](http://www.mathworks.com/matlabcentral/fileexchange/XXXXX) -->
+- [http://www.mathworks.com/matlabcentral/fileexchange/62546](http://www.mathworks.com/matlabcentral/fileexchange/62546)
