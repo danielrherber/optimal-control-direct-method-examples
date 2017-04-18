@@ -11,24 +11,24 @@
 %--------------------------------------------------------------------------
 function INSTALL_Direct_Method_Examples
 
-	warning('off','MATLAB:dispatcher:nameConflict');
+    warning('off','MATLAB:dispatcher:nameConflict');
 
-	% Add project contents to path
-	AddProjectContents
+    % Add project contents to path
+    AddProjectContents
 
-	% FX submissions
-	FXSubmissions
-    
-	% Add project contents to path again
-	AddProjectContents
+    % FX submissions
+    FXSubmissions
 
-	% Open example
-	OpenExample('Run_All_Examples')
+    % Add project contents to path again
+    AddProjectContents
 
-	% Close this file
-	CloseThisFile(mfilename)
+    % Open example
+    OpenExample('Run_All_Examples')
 
-	warning('on','MATLAB:dispatcher:nameConflict');
+    % Close this file
+    CloseThisFile(mfilename)
+
+    warning('on','MATLAB:dispatcher:nameConflict');
 
 end
 %--------------------------------------------------------------------------
@@ -42,23 +42,23 @@ function AddProjectContents
 end
 %--------------------------------------------------------------------------
 function FXSubmissions
-	disp('--- Obtaining required MATALB File Exchange submissions')
+    disp('--- Obtaining required MATALB File Exchange submissions')
 
-	ind = 0;
-    
-	ind = ind + 1;
-	zips(ind).url = 'https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/51104/versions/1/download/zip/v1.zip';
-	zips(ind).name = 'MFX 51104';
-	zips(ind).test = 'LagrangeInter';
+    ind = 0;
 
-	% obtain full function path
-	full_fun_path = which(mfilename('fullpath'));
-	outputdir = fullfile(fileparts(full_fun_path),'include\');
+    ind = ind + 1;
+    zips(ind).url = 'https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/51104/versions/1/download/zip/v1.zip';
+    zips(ind).name = 'MFX 51104';
+    zips(ind).test = 'LagrangeInter';
 
-	% download and unzip
-	DownloadWebZips(zips,outputdir)
+    % obtain full function path
+    full_fun_path = which(mfilename('fullpath'));
+    outputdir = fullfile(fileparts(full_fun_path),'include');
 
-	disp(' ')
+    % download and unzip
+    DownloadWebZips(zips,outputdir)
+
+    disp(' ')
 end
 %--------------------------------------------------------------------------
 % download and unzip weblinks that contain zip files
