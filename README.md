@@ -7,39 +7,38 @@
 
 [![license](https://img.shields.io/github/license/danielrherber/optimal-control-direct-method-examples.svg)](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/License)
 
-Teaching examples for three direct methods for solving optimal control problems, namely [single shooting](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_SingleShooting.m), [single step](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_SingleStep.m), and [pseudospectral](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Method_Pseudospectral.m).
+Teaching examples for three direct methods for solving optimal control problems, namely [single shooting](src/Method_SingleShooting.m), [single step](src/Method_SingleStep.m), and [pseudospectral](src/Method_Pseudospectral.m).
 
-![readme_image.svg](http://www.danielherber.com/img/projects/optimal-control-direct-method-examples/readme_image.svg)
+![readme_image.svg](optional/readme_image.svg)
 
 ---
 ### Install
 - Download the [project files](https://github.com/danielrherber/optimal-control-direct-method-examples/archive/master.zip)
-- Run [INSTALL_Direct_Method_Examples.m](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/INSTALL_Direct_Method_Examples.m) in the MATLAB Command Window *(automatically adds project files to your MATLAB path, downloads the required MATLAB File Exchange submissions, and open an example)*
-```tex
+- Run [INSTALL_Direct_Method_Examples.m](INSTALL_Direct_Method_Examples.m) in the MATLAB Command Window *(automatically adds project files to your MATLAB path, downloads the required files, and opens an example)*
+```matlab
 INSTALL_Direct_Method_Examples
 ```
-- See [Run_All_Examples.m](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/Run_All_Examples.m) to run all the examples or the individual examples in `/src`
-```tex
+- See [Run_All_Examples.m](src/Run_All_Examples.m) to run all the examples or the individual examples in `/src`
+```matlab
 Run_All_Examples
 ```
 
 ### External Includes
-See [INSTALL_Direct_Method_Examples.m](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/INSTALL_Direct_Method_Examples.m) for more information
-- MATLAB File Exchange Submission IDs
-	- 51104
+- See [INSTALL_Direct_Method_Examples.m](INSTALL_Direct_Method_Examples.m) for more information
+- **MATLAB File Exchange Submission IDs** (51104, 65434)
 
 ---
 ### Bryson-Denham Problem
 
 This is the optimal control problem used in the examples. The problem formulation is:
 
-![bd_formulation.svg](http://www.danielherber.com/img/projects/optimal-control-direct-method-examples/bd_formulation.svg)
+![bd_formulation.svg](src/bryson-denham/BrysonDenham_formulation.svg)
 
 The optimal control solution when `\ell` is between 0 and 1/6 is:
 
-![bd_solution.svg](http://www.danielherber.com/img/projects/optimal-control-direct-method-examples/bd_solution.svg)
+![bd_solution.svg](src/bryson-denham/BrysonDenham_solution.svg)
 
-Please see the following files that calculate the optimal [states](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/bryson-denham/BrysonDenham_Solution_States.m) and [control](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/src/bryson-denham/BrysonDenham_Solution_Control.m). See pages 120–123 of *A. E. Bryson and Y.-C. Ho, Applied Optimal Control, revised printing ed. Taylor & Francis, 1975* for more details on this problem.
+Please see the following files that calculate the optimal [states](src/bryson-denham/BrysonDenham_Solution_States.m) and [control](src/bryson-denham/BrysonDenham_Solution_Control.m). See pages 120–123 of *A. E. Bryson and Y.-C. Ho, Applied Optimal Control, revised printing ed. Taylor & Francis, 1975* for more details on this problem.
 
 ---
 ### General Information
