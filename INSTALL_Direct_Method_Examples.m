@@ -25,7 +25,7 @@ function INSTALL_Direct_Method_Examples
     AddSubmissionContents(mfilename)
 
     % run install file for DTQP Project
-    evalc('INSTALL_DTQP_Project');
+    evalc('INSTALL_DTQP');
     CloseThisFile('BrysonHo166')
     
     % add contents to path (files have been downloaded)

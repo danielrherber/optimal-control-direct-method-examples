@@ -13,17 +13,23 @@
 %--------------------------------------------------------------------------
 function Method_DTQPProject
     % problem parameters
-    p.t0 = 0; p.tf = 1; % time horizon
     p.y10 = 0; p.y1f = 0; p.y20 = 1; p.y2f = -1; % boundary conditions
     p.l = 1/9;
     % direct transcription parameters
-    p.nt = 10; % number of node points
-%     p.nt = 50; % number of node points
-    opts.NType = 'ED'; % time grid method
-    opts.Defectmethod = 'TR'; % defect constraint method
-    opts.Quadmethod = 'CTR'; % quadrature method
+    opts.dt.nt = 10; % number of node points
+    method = 1;
+    switch method
+        case 1 % similar to Method_SingleStep.m
+            opts.dt.mesh = 'ED'; % time grid method
+            opts.dt.defects = 'TR'; % defect constraint method
+            opts.dt.quadrature = 'CTR'; % quadrature method 
+        case 2 % similar to Method_Pseudospectral.m
+            opts.dt.mesh = 'LGL'; % time grid method
+            opts.dt.defects = 'PS'; % defect constraint method
+            opts.dt.quadrature = 'G'; % quadrature method
+    end
     % time horizon
-    p.t0 = 0; p.tf = 1;
+    setup.t0 = 0; setup.tf = 1; % time horizon
     % system dynamics
     A = [0 1;0 0]; B = [0;1];
     % Lagrange term
@@ -39,5 +45,6 @@ function Method_DTQPProject
     % solve the problem
     [~,U,Y,~,~,p,~] = DTQP_solve(setup,opts);
     % plots
+    p.l = p.p.l;
     Plots(Y(:,1),Y(:,2),U,p,'DT QP Project')
 end
