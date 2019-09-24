@@ -16,12 +16,12 @@ function Method_SingleShooting
     p.l = 1/9;
     % shooting parameters
     p.nt = 10; % number of node points
-%     p.nt = 50; % number of node points
+	%  p.nt = 50; % number of node points
     p.t = linspace(p.t0,p.tf,p.nt)'; % time horizon
     % discretized variable indices in x = [u];
     p.ui = 1:p.nt;
     x0 = zeros(p.nt*(p.nu),1); % initial guess (all zeros)
-    options = optimoptions(@fmincon,'display','iter','MaxFunctionEvaluations',1e5); % option
+    options = optimoptions(@fmincon,'display','iter','MaxFunEvals',5e3); % option
     % solve the problem
     x = fmincon(@(x) objective(x,p),x0,[],[],[],[],[],[],@(x) constraints(x,p),options);
     % obtain the optimal solution

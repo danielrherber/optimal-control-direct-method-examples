@@ -54,16 +54,20 @@ function Plots(y,v,u,p,method)
     xlabel(myxlabel) % create x label
     ylabel(myylabel) % create y label
     ha = gca; % get current axis handle
-    ha.XAxis.Color = bcolor; % change the x axis color to black (not a dark grey)
-    ha.XAxis.FontSize = fonttick; % change x tick font size
-    ha.YAxis.FontSize = fonttick; % change y tick font size
-    ha.XAxis.Label.FontSize = fontlabel; % change x label font size
-    ha.YAxis.Label.FontSize = fontlabel; % change y label font size
-    ht = title(mytitle);
-    ht.FontSize = fontlabel;
-    hl = legend(mylegend,'location','Best'); % create legend
-    hl.FontSize = fontlegend; % change legend font size
-    hl.EdgeColor = bcolor; % change the legend border to black (not a dark grey)
+    try
+        ha.XAxis.Color = bcolor; % change the x axis color to black (not a dark grey)
+        ha.XAxis.FontSize = fonttick; % change x tick font size
+        ha.YAxis.FontSize = fonttick; % change y tick font size
+        ha.XAxis.Label.FontSize = fontlabel; % change x label font size
+        ha.YAxis.Label.FontSize = fontlabel; % change y label font size
+        ht = title(mytitle);
+        ht.FontSize = fontlabel;
+        hl = legend(mylegend,'location','Best'); % create legend
+        hl.FontSize = fontlegend; % change legend font size
+        hl.EdgeColor = bcolor; % change the legend border to black (not a dark grey)
+    catch
+        disp('plot formatting failed (try using a version that supports HG2)')
+    end
     
     %----------------------------------------------------------------------
     % plots control
@@ -85,15 +89,19 @@ function Plots(y,v,u,p,method)
     mylegend = {'True Solution - Control',[method, ' - Control']}; % legend with latex
     xlabel(myxlabel) % create x label
     ylabel(myylabel) % create y label
-    ha = gca; % get current axis handle
-    ha.XAxis.Color = bcolor; % change the x axis color to black (not a dark grey)
-    ha.XAxis.FontSize = fonttick; % change x tick font size
-    ha.YAxis.FontSize = fonttick; % change y tick font size
-    ha.XAxis.Label.FontSize = fontlabel; % change x label font size
-    ha.YAxis.Label.FontSize = fontlabel; % change y label font size
-    ht = title(mytitle);
-    ht.FontSize = fontlabel;
-    hl = legend(mylegend,'location','Best'); % create legend
-    hl.FontSize = fontlegend; % change legend font size
-    hl.EdgeColor = bcolor; % change the legend border to black (not a dark grey)
+    try
+        ha = gca; % get current axis handle
+        ha.XAxis.Color = bcolor; % change the x axis color to black (not a dark grey)
+        ha.XAxis.FontSize = fonttick; % change x tick font size
+        ha.YAxis.FontSize = fonttick; % change y tick font size
+        ha.XAxis.Label.FontSize = fontlabel; % change x label font size
+        ha.YAxis.Label.FontSize = fontlabel; % change y label font size
+        ht = title(mytitle);
+        ht.FontSize = fontlabel;
+        hl = legend(mylegend,'location','Best'); % create legend
+        hl.FontSize = fontlegend; % change legend font size
+        hl.EdgeColor = bcolor; % change the legend border to black (not a dark grey)
+    catch
+        disp('plot formatting failed (try using a version that supports HG2)')
+    end
 end

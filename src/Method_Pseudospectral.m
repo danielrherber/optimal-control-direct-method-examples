@@ -17,14 +17,14 @@ function Method_Pseudospectral
     p.l = 1/9;
     % direct transcription parameters
     p.nt = 10; % number of node points
-%     p.nt = 50; % number of node points
+    % p.nt = 50; % number of node points
     p.tau = LGL_nodes(p.nt-1); % scaled time horizon
     p.D =  LGL_Dmatrix(p.tau); % for defect constraints
     p.w = LGL_weights(p.tau); % for gaussian quadrature
     % discretized variable indices in x = [y1,y2,u];
     p.y1i = 1:p.nt; p.y2i = p.nt+1:2*p.nt; p.ui = 2*p.nt+1:3*p.nt;
     x0 = zeros(p.nt*(p.ns+p.nu),1); % initial guess (all zeros)
-    options = optimoptions(@fmincon,'display','iter','MaxFunctionEvaluations',1e5); % options
+    options = optimoptions(@fmincon,'display','iter','MaxFunEvals',1e5); % options
     % solve the problem
     x = fmincon(@(x) objective(x,p),x0,[],[],[],[],[],[],@(x) constraints(x,p),options);
     % obtain the optimal solution

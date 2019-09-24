@@ -17,13 +17,13 @@ function Method_SingleStep
     p.l = 1/9;
     % direct transcription parameters
     p.nt = 10; % number of node points
-%     p.nt = 50; % number of node points
+    % p.nt = 50; % number of node points
     p.t = linspace(p.t0,p.tf,p.nt)'; % time horizon
     p.h = diff(p.t); % step size
     % discretized variable indices in x = [y1,y2,u];
     p.y1i = 1:p.nt; p.y2i = p.nt+1:2*p.nt; p.ui = 2*p.nt+1:3*p.nt;
     x0 = zeros(p.nt*(p.ns+p.nu),1); % initial guess (all zeros)
-    options = optimoptions(@fmincon,'display','iter','MaxFunctionEvaluations',1e5); % options
+    options = optimoptions(@fmincon,'display','iter','MaxFunEvals',1e5); % options
     % solve the problem
     x = fmincon(@(x) objective(x,p),x0,[],[],[],[],[],[],@(x) constraints(x,p),options);
     % obtain the optimal solution

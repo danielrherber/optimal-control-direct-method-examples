@@ -1,11 +1,12 @@
 ## README (optimal-control-direct-method-examples)
 
 [![GitHub release](https://img.shields.io/github/release/danielrherber/optimal-control-direct-method-examples.svg)](https://github.com/danielrherber/optimal-control-direct-method-examples/releases/latest)
+[![license](https://img.shields.io/github/license/danielrherber/optimal-control-direct-method-examples.svg)](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/License)
+
 [![](https://img.shields.io/badge/language-matlab-EF963C.svg)](https://www.mathworks.com/products/matlab.html)
 [![](https://img.shields.io/github/issues-raw/danielrherber/optimal-control-direct-method-examples.svg)](https://github.com/danielrherber/optimal-control-direct-method-examples/issues)
 [![GitHub contributors](https://img.shields.io/github/contributors/danielrherber/optimal-control-direct-method-examples.svg)](https://github.com/danielrherber/optimal-control-direct-method-examples/graphs/contributors)
-
-[![license](https://img.shields.io/github/license/danielrherber/optimal-control-direct-method-examples.svg)](https://github.com/danielrherber/optimal-control-direct-method-examples/blob/master/License)
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/optimal-control-direct-method-examples/community)
 
 Teaching examples for three direct methods for solving optimal control problems, namely [single shooting](src/Method_SingleShooting.m), [single step](src/Method_SingleStep.m), and [pseudospectral](src/Method_Pseudospectral.m).
 
@@ -24,8 +25,14 @@ Run_All_Examples
 ```
 
 ### External Includes
-- See [INSTALL_Direct_Method_Examples.m](INSTALL_Direct_Method_Examples.m) for more information
+See [INSTALL_Direct_Method_Examples.m](INSTALL_Direct_Method_Examples.m) for more information
 - **MATLAB File Exchange Submission IDs** (51104, 65434)
+
+### MATLAB Version
+The main methods should work on version R2014b or newer.
+[Method_DTQPProject.m](optional/Method_DTQPProject.m) requires version R2016a or newer.
+Some of the plot decorations require newer versions that support structure properties in figures.
+The [Optimization Toolbox](https://www.mathworks.com/products/optimization.html) is required.
 
 ---
 ### Bryson-Denham Problem
